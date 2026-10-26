@@ -14,18 +14,23 @@
         <p>Search for a word to discover its meaning.</p>
     </header>
     <section id="searchSection">
-        <input type="text" id="searchInput" placeholder="Enter a word...">
-        <button id="searchButton">Search</button>
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Enter a word...">
+            <button id="searchButton">Search</button>
+        </form>
     </section>
     <section id="resultSection">
         <h2>Result</h2>
         <div id="resultContainer">
             <h3 id="word">Word: --</h3>
             <p id="pronunciation">Pronunciation: --</p>
-            <p id="definition">Definition: --</p>
+            <div id="definition">
+                <h3>Definition</h3>
+                <p id="definitionText">Search for a word to see its meaning.</p>
+            </div>
 
         </div>
-        <div id ="audioContainer">
+        <div id="audioContainer">
             <audio id="audio" controls>
                 <source id="audioSource" src="" type="audio/mpeg">
                 Your browser does not support the audio element.

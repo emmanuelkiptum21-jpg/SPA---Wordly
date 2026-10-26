@@ -47,7 +47,7 @@ header p {
     outline: none;
 }
 
-#serachInput:focus {
+#searchInput:focus {
     border-color: #4CAF50;
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
@@ -106,4 +106,9 @@ header p {
 }
 #audio{
     width: 100%;
+}
+#definition {
+    font-size: 1rem;
+    color: #334155;
+    margin-bottom: 10px;
 }
