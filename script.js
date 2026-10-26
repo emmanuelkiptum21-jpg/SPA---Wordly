@@ -3,7 +3,7 @@ const searchInput = document.querySelector('#searchInput');
 const WordElement = document.querySelector('#word');
 const PronunciationElement = document.querySelector('#pronunciation');
 const DefinitionElement = document.querySelector('#definitionText');
-const audioElement= document.querySelector('#audio');
+const audioElement = document.querySelector('#audio');
 
 async function fetchWordData(word) {
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
@@ -30,13 +30,21 @@ function displayWordData(data) {
         ?.find(meaning => meaning.definitions?.length)
         ?.definitions[0]?.definition;
     DefinitionElement.textContent = definition || 'N/A';
+    const audioUrl = data.phonetics
+        ?.find(phonetic => phonetic.audio?.trim())
+        ?.audio;
 
-    const audiourl = data.phonetics?.find(phonetic => phonetic.audio)?.audio;
-    if (audiourl) {
-        audioElement.src = audiourl;
+    if (audioUrl) {
+        audioElement.src = audioUrl.startsWith("//")
+            ? `https:${audioUrl}`
+            : audioUrl;
+
         audioElement.hidden = false;
+        audioElement.load();
     } else {
-        audioElement.removeAttribute('src');
+        audioElement.pause();
+        audioElement.removeAttribute("src");
+        audioElement.load();
         audioElement.hidden = true;
     }
 }

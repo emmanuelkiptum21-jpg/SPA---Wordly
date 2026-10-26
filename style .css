@@ -29,6 +29,10 @@ header h1 {
 header p {
     font-size: 1.2rem;
 }
+#searchButton{
+    margin-left: 250px;
+    margin-top: 20px;
+}
 
 #searchSection {
     max-width: 600px;
